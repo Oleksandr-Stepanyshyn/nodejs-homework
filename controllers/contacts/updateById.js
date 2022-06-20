@@ -2,7 +2,7 @@ const contacts = require("../../models/contacts");
 const createError = require("../../helpers/createError");
 const { updateSchema } = require("../../schemas/contacts");
 
-const updateById = async (req, res, next) => {
+const updateById = async (req, res) => {
   const { error } = updateSchema.validate(req.body);
   if (error) {
     throw createError(400, "missing fields");
