@@ -25,7 +25,6 @@ const updateAvatar = async (req, res) => {
   if (!user.avatarURL) {
     throw createError(401);
   }
-  console.log(user);
 
   res.json({ avatarURL: user.avatarURL });
 };
