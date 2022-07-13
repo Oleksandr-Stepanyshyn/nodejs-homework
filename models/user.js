@@ -52,6 +52,10 @@ const register = Joi.object({
   avatarURL: Joi.string(),
 });
 
+const verify = Joi.object({
+  email: Joi.string().required(),
+});
+
 const login = Joi.object({
   password: Joi.string().min(4).required(),
   email: Joi.string().required(),
@@ -65,6 +69,7 @@ const updateSubscription = Joi.object({
 
 const schemas = {
   register,
+  verify,
   login,
   updateSubscription,
 };
