@@ -11,6 +11,12 @@ router.post(
   validation(schemas.register),
   ctrlWrapper(ctrl.register)
 );
+router.get("/verify/:verificationToken", ctrlWrapper(ctrl.verifyEmail));
+router.post(
+  "/verify",
+  validation(schemas.verify),
+  ctrlWrapper(ctrl.resendVerifyEmail)
+);
 router.post("/login", validation(schemas.login), ctrlWrapper(ctrl.login));
 router.get("/current", authenticate, ctrlWrapper(ctrl.getCurrent));
 router.get("/logout", authenticate, ctrlWrapper(ctrl.logout));
@@ -20,7 +26,6 @@ router.patch(
   validation(schemas.updateSubscription),
   ctrlWrapper(ctrl.updateSubscription)
 );
-
 router.patch(
   "/avatars",
   authenticate,
